@@ -5,11 +5,11 @@ const { Server } = require("socket.io");
 const { config } = require("dotenv");
 config();
 
-const APP_HOST = "http://localhost:5173";
+const APP_HOST = "*";
 const app = express();
 const server = http.createServer(app);
 const io = new Server(server, {
-  cors: { origin: APP_HOST, credentials: true },
+  cors: { origin: APP_HOST, credentials: true, methods: ["GET", "POST"] },
 });
 
 const players = {};
